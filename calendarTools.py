@@ -69,7 +69,7 @@ def calculateDaysBetween(date0,date1):
 
 def getDaysInMonth(month,year):
     if month == 2:
-        if isLeapYear:
+        if isLeapYear(year):
 
             return 29
         
