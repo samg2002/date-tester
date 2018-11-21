@@ -5,11 +5,13 @@ from math import *
 months = {"Jan" : 1,"Feb" : 2,"Mar" : 3,"Apr" : 4,"May" : 5,"Jun" : 6,"Jul" : 7,"Aug" : 8,"Sep" : 9,"Oct" : 10,"Nov" : 11,"Dec" : 12}
 
 ##An Array that stores the number of days in each month
-monthDays = [31,28,31,30,31,30,31,31,30,31,30,31]
+monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+for b in range(num
 
 def calculateDaysBetween(date0,date1):
 
-    date0Array = date0.split(" ")
+    date0Array = date0.split(" ")##Turns the string into an Array
     date1Array = date1.split(" ")
 
     day0 = int(date0Array[1][:-1])
