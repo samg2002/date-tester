@@ -2,7 +2,7 @@ from calendarTools import *
 
 
 
-dateZeros = ["Jan 01, 2018","Jan 09, 2018","Dec 31, 2018","Mar 05, 2015","Jul 20, 2002"]
+dateZeros = ["Jan 01, 2018","Jan 09, 2018","Dec 25, 2018","Mar 10, 2015","Jul 20, 2002"]
 dateOnes = ["Feb 01, 2018","Mar 21, 2018","Jan 03, 2019","Jan 01, 2018","Oct 22, 2008"]
 
 for i in range(len(dateZeros)):

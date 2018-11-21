@@ -1,3 +1,4 @@
+from tkinter import *
 from math import *
 
 
@@ -7,7 +8,7 @@ months = {"Jan" : 1,"Feb" : 2,"Mar" : 3,"Apr" : 4,"May" : 5,"Jun" : 6,"Jul" : 7,
 ##An Array that stores the number of days in each month
 monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-for b in range(num
+
 
 def calculateDaysBetween(date0,date1):
 
@@ -25,15 +26,15 @@ def calculateDaysBetween(date0,date1):
     year1 = int(date1Array[2])
 
 
-    if year0 == year1:
-        if month0 == month1:
+    if year0 == year1: ##Calculates if the two years are the same
+        if month0 == month1: #If both months are also the same
             return abs (betweenDays (day0,day1))
 
-        elif month0 != month1:
+        elif month0 != month1: #If the months are not the same
             return countDaysWithinYear(month0,day0,month1,day1,year0)
 
     else:
-        if year0 > year1:
+        if year0 > year1: ##Calculates if the two years are no the same
             smallerYear = year1
             biggerYear = year0
             smallerMonth = month1
@@ -54,22 +55,17 @@ def calculateDaysBetween(date0,date1):
         
         daysOfYearsInBetween = 0
 
-        for i in range(biggerYear-smallerYear-1):
+        for i in range(biggerYear-smallerYear-1): ##A for loop to find the number of years in between the two years
             daysOfYearsInBetween = daysOfYearsInBetween + 365
             if isLeapYear(i + smallerYear + 1):
                 daysOfYearsInBetween = daysOfYearsInBetween + 1
+            
 
         return daysOfYearsInBetween + daysUntillEndOfYear + daysFromStartOfYear + 1
                 
             
             
-            
-
-
-        
-            
-
-def getDaysInMonth(month,year):
+def getDaysInMonth(month,year): ##Gets the number of days in a month
     if month == 2:
         if isLeapYear(year):
 
@@ -81,7 +77,7 @@ def getDaysInMonth(month,year):
 
 ##A function that checks if a year is a Leap Year
 def isLeapYear(year):
-    return  (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
+    (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
             
             
             
@@ -105,9 +101,9 @@ def countDaysWithinYear(month0,day0,month1,day1,year):
     
     daysTillMonthEnds = 0 ##A variable that calculates the amount of days left in the month from the first date
     
-    daysIntoMonth = 0 ##A variable that calculates the amount of days into a month for later date
+    daysIntoMonth = 0 ##A variable that calculates the amount of days into a month for the later date
     
-    if month0 > month1:
+    if month0 > month1: 
         smallerMonth = month1
         biggerMonth = month0
         daysTillMonthEnds = getDaysInMonth(month1,year)-day1
@@ -118,15 +114,13 @@ def countDaysWithinYear(month0,day0,month1,day1,year):
         biggerMonth = month1
         daysTillMonthEnds = getDaysInMonth(month0,year)-day0
         daysIntoMonth = day1
+               
     else:
-        return abs(betweenDays(day1, day0))
+        return abs(betweenDays(day1, day0)) ##Gets the absolute value differnce of the two dates
             
     daysBetweenMonths = 0 ##A variable for calculating the amount of years/months/days between the two given dates
         
-    for i in range(biggerMonth-smallerMonth-1):
+    for i in range(biggerMonth-smallerMonth-1): 
         daysBetweenMonths = daysBetweenMonths + getDaysInMonth(smallerMonth + i + 1,year)
 
     return daysBetweenMonths + daysTillMonthEnds + daysIntoMonth
-
-
-
